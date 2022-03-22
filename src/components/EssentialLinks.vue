@@ -6,7 +6,7 @@
         clickable 
         v-ripple
         @click="navigateTo"
-        :active="active_link"
+        :active="active"
         >
             <q-item-section v-if="icon" avatar>
                 <q-icon :name="icon" />
@@ -19,7 +19,7 @@
 </template>
 <script>
 
-import { computed, defineComponent, ref, toRef } from "vue"
+import { defineComponent} from "vue"
 import { useRouter } from "vue-router"
 
 export default defineComponent({
@@ -44,13 +44,12 @@ export default defineComponent({
     },
     setup(props){
         const router = useRouter()
-        let active_link = ref(props.active);
+        // let active_link = ref(props.active);
 
         return {
-            active_link,
             navigateTo(){
-                this.active_link = true;
-                console.log(props.active)
+                // this.active_link = true;
+                // console.log(props.active)
                 router.push({
                     name: props.link
                 })
